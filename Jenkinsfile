@@ -10,6 +10,7 @@ pipeline {
       steps {
         sh 'ls'
         sh 'pwd'
+        sh 'npm -v && node --version'
       }
     }
   }
