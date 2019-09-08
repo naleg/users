@@ -11,7 +11,7 @@ pipeline {
         sh 'npm install typescript'
         sh 'npm install'
         sh './node_modules/.bin/tsc'
-        sh 'node build/app.js'
+        sh 'npm run test'
       }
     }
   }
