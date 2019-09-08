@@ -9,6 +9,7 @@ pipeline {
     stage('gather') {
       steps {
         sh 'ls'
+        sh 'pwd'
       }
     }
   }
