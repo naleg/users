@@ -11,7 +11,7 @@ pipeline {
         sh 'npm -v && node --version'
         sh 'npm install typescript'
         sh 'npm install'
-        sh 'tsc'
+        sh './node_modules/.bin/tsc'
         sh 'node build/app.js'
       }
     }
