@@ -9,7 +9,7 @@ var pjson = require('./../package.json');
 import {port} from "./env/envload";
 import {logger} from "./logging/logger";
 
-const app: express.Application = express();
+export const app: express.Application = express();
 const router = express.Router();
 
 app.use(bodyParser.json());
