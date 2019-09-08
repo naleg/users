@@ -3,9 +3,12 @@ pipeline {
         docker { image 'node:12-alpine' }
     }
     stages {
-        stage('Test') {
+        stage('Build') {
             steps {
-                sh 'node --version'
+                sh './jenkins-scripts/install.sh'
+            }
+            steps {
+                sh 'npm install'
             }
         }
     }
