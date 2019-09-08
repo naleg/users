@@ -8,11 +8,8 @@ pipeline {
   stages {
     stage('gather') {
       steps {
-        sh 'ls'
-        sh 'pwd'
         sh 'npm -v && node --version'
-        sh '''mkdir /.npm
-npm install typescript'''
+        sh 'npm install'
       }
     }
   }
