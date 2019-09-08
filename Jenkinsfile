@@ -1,17 +1,25 @@
 pipeline {
   agent {
     docker {
-      image 'node:12-alpine'
+      image 'node:12-slim'
     }
 
   }
   stages {
-    stage('gather') {
+    stage('install') {
       steps {
         sh 'npm install typescript'
         sh 'npm install'
-        sh './node_modules/.bin/tsc'
+      }
+    }
+    stage('test') {
+      steps {
         sh 'npm run test'
+      }
+    }
+    stage('compile') {
+      steps {
+        sh './node_modules/.bin/tsc'
       }
     }
   }
