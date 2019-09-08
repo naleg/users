@@ -11,7 +11,8 @@ pipeline {
         sh 'ls'
         sh 'pwd'
         sh 'npm -v && node --version'
-        sh 'npm install -g typescript'
+        sh '''sudo chown -R 112:116 "/.npm"
+npm install -g typescript'''
       }
     }
   }
