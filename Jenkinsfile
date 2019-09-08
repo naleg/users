@@ -11,7 +11,8 @@ pipeline {
         sh 'ls'
         sh 'pwd'
         sh 'npm -v && node --version'
-        sh 'npm install typescript'
+        sh '''mkdir /.npm
+npm install typescript'''
       }
     }
   }
