@@ -6,19 +6,25 @@ import * as bodyParser from 'body-parser';
 var pjson = require('./../package.json');
 
 // imports from application
-import {port} from "./env/envload";
-import {logger} from "./logging/logger";
+import * as env from "./env/envload";
+import {requestLoggerMiddleware, logger} from "./logging/logger";
+import {authMiddleware} from "./authentication/auth";
 
 export const app: express.Application = express();
 const router = express.Router();
 
 app.use(bodyParser.json());
-app.use(logger);
+app.use(authMiddleware);
+app.use(requestLoggerMiddleware);
 
 app.get('/', function (req, res) {
   res.send('Hello World');
 });
 
-app.listen(port, function () {
-  console.log('App listening on port '+port+'!');
+app.get('/abc', function (req, res) {
+  res.send('Hello World');
+});
+
+app.listen(env.port, function () {
+  console.log('App listening on port '+env.port+'!');
 });
