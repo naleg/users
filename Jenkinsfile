@@ -1,15 +1,11 @@
 pipeline {
-  agent {
-    docker {
-      image 'node:12-slim'
-    }
-
-  }
+  agent any
   stages {
     stage('install') {
       steps {
         sh 'npm install typescript'
         sh 'npm install'
+        sh 'apt-get update && apt-get install -y npm'
       }
     }
     stage('test') {
