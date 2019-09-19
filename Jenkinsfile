@@ -3,7 +3,6 @@ pipeline {
   stages {
     stage('install') {
       steps {
-        sh 'apt-get update && apt-get install -y npm'
         sh 'npm install typescript'
         sh 'npm install'
       }
